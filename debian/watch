@@ -1,0 +1,3 @@
+version=3
+opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/budgie-haste-applet-$1\.tar\.gz/ \
+  https://github.com/cybre/budgie-haste-applet/tags .*/v?(\d\S*)\.tar\.gz

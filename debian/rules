@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+export DH_VERBOSE = 1
+export MAKE = ninja -v
+export DEB_BUILD_MAINT_OPTIONS = hardening=+relro,+bindnow
+export DEB_CFLAGS_MAINT_APPEND = -fPIC
+export DEB_CPPFLAGS_MAINT_APPEND = -fPIC
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+%:
+	dh $@ 
+
+override_dh_auto_configure:
+	mkdir -p build
+	cd build && meson --prefix=/usr --libdir=/usr/lib ..
+
+override_dh_auto_build:
+	cd build && $(MAKE)
+
+override_dh_auto_clean:
+	rm -rf build
+
+override_dh_auto_install:
+	cd build && DESTDIR=$(CURDIR)/debian/tmp $(MAKE) install
