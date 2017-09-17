@@ -1,3 +1,9 @@
+budgie-haste-applet (0.3.0-0ubuntu1~zesty) zesty; urgency=medium
+
+  * New upstream release
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Sun, 17 Sep 2017 10:23:14 +0100
+
 budgie-haste-applet (0.2.9-0ubuntu1~zesty) zesty; urgency=medium
 
   * Initial Release
